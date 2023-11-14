@@ -5,7 +5,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { skills, experiences, socials } from "../constants";
-import CTA from "../components/CTA.JSX";
+import CTA from "../components/CTA.jsx";
 import { Link } from "react-router-dom";
 
 const About = () => {
