@@ -7,7 +7,7 @@ import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 import HomeInfo from "../components/HomeInfo";
 
-import sakura from '../assets/sakura.mp3'
+import sakura from "../assets/sakura.mp3";
 import { soundoff, soundon } from "../assets/icons";
 
 const Home = () => {
@@ -17,15 +17,22 @@ const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const [showText, setShowText] = useState(true)
 
   useEffect(() => {
-    if(isPlayingMusic){
+    if(currentStage != 1){
+      setShowText(false);
+    }
+  }, [currentStage])
+
+  useEffect(() => {
+    if (isPlayingMusic) {
       audioRef.current.play();
     }
     return () => {
       audioRef.current.pause();
-    }
-  }, [isPlayingMusic])
+    };
+  }, [isPlayingMusic]);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
@@ -62,9 +69,8 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
-
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage}/>}
+        {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
 
       <Canvas
@@ -100,9 +106,18 @@ const Home = () => {
           />
         </Suspense>
       </Canvas>
-
+      {showText && (
+        <div className="absolute bottom-5 flex justify-center items-center w-full text-black-600 font-medium">
+          Drag and Move to Explore
+        </div>
+      )}
       <div className="absolute bottom-2 left-2">
-        <img src={!isPlayingMusic ? soundoff : soundon} alt="sound" className="w-10 h-10 cursor-pointer object-contain"  onClick={() => setIsPlayingMusic(!isPlayingMusic)}/>
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt="sound"
+          className="w-10 h-10 cursor-pointer object-contain"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        />
       </div>
     </section>
   );

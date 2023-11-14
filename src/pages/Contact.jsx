@@ -5,6 +5,8 @@ import Fox from '../models/Fox'
 import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
 import Alert from "../components/Alert";
+import { socials } from '../constants'
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -57,13 +59,19 @@ const Contact = () => {
   }
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-container h-100vh">
+    <section className="relative flex lg:flex-row flex-col max-container md:h-screen">
 
     {alert.show && <Alert {...alert}/>}
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
-
-        <form className="w-full flex flex-col gap-7 mt-14" onSubmit={handleSubmit} ref={formRef}>
+        <div className="flex gap-4 mt-4">
+        {socials.map((social) => (
+          <Link to={social.url} key={social.name} target="_blank" className="flex justify-center items-center transition-all duration-200 hover:scale-[1.02] hover:shadow-lg shadow-md p-2 w-10 h-10 rounded-lg">
+            <img src={social.icon} alt={social.name} className="w-full h-full object-contain"/>
+          </Link>
+        ))}
+        </div>
+        <form className="w-full flex flex-col gap-7 mt-8" onSubmit={handleSubmit} ref={formRef}>
           <label className="text-black-500 font-semibold">Name
           <input
             type="text"
