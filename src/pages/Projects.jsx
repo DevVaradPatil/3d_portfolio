@@ -36,17 +36,26 @@ const Projects = () => {
               <p className="mt-2 text-slate-500">{project.description}</p>
               <div className="flex justify-between">
               <div className="mt-5 flex items-center gap-2 font-poppins">
-                <Link to={project.live} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600">Live Demo</Link>
+                <Link to={project.live} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:opacity-75 transition-all">Live Demo</Link>
                 <img src={arrow} alt="arrow" className="w-4 h-4 object-contain" />
               </div>
               <div className="mt-5 flex items-center gap-2 font-poppins">
-                <Link to={project.link} target="_blank" rel="noopener noreferrer" className="font-semibold text-black-600">Github Link</Link>
+                <Link to={project.link} target="_blank" rel="noopener noreferrer" className="font-semibold text-black-500 hover:opacity-75 transition-all">Github Link</Link>
                 <img src={arrowb} alt="arrow" className="w-4 h-4 object-contain" />
               </div>
               </div>
             </div>
           </div>
         ))}
+
+<div className="flex justify-between items-center w-full">
+        <Link to='https://varad-dev-showcase.web.app/' target="_blank" className="btn">
+          Explore All Projects
+        </Link>
+        <Link to='https://varadportfolio.web.app/' target="_blank" className="btn">
+          View Detailed Portfolio
+        </Link>
+</div>
       </div>
 
       <div className="py-10 flex flex-col">

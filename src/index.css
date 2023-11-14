@@ -181,3 +181,33 @@ body:has(.card[data-color="green"]:hover) {
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
 }
+
+
+/* Define the scrollbar styles for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0072ff; /* Set the theme color for the thumb (the draggable part of the scrollbar) */
+  border-radius: 4px; /* Optional: Round the corners of the thumb */
+}
+
+/* Define the scrollbar styles for Firefox */
+/* Note: Firefox does not support styling the scrollbar track directly, so only the thumb is styled */
+/* You may need to use a JavaScript library for a more consistent solution across browsers */
+
+/* Add a transparent border to the scrollbar track to make it visible */
+body {
+  scrollbar-color: transparent transparent; /* Set the scrollbar thumb and track color */
+}
+
+/* Style the scrollbar thumb for Firefox */
+body::-webkit-scrollbar-thumb {
+  background-color: #0072ff; /* Set the theme color for the thumb in Webkit browsers as well */
+}
+
+/* Optional: Hover effect for the thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; /* Set a slightly different color on hover */
+}
