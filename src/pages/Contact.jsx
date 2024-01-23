@@ -30,8 +30,8 @@ const Contact = () => {
     setIsLoading(true);
     setCurrentAnimation('hit');
     emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      'service_2at5w1f',
+      'template_qrurobu',
       {
         from_name: form.name,
         to_name: "Varad",
@@ -39,7 +39,7 @@ const Contact = () => {
         to_email: "varadapatil123@gmail.com",
         message: form.message,
       },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      'gPSVXRIE5XamWG-UM'
     ).then(() => {
       setIsLoading(false);
       showAlert({ show: true, text: 'Message sent successfully!', type: 'success'})
